@@ -45,6 +45,14 @@ class AccountPayment(models.Model):
                     "ref": payment.ref,
                     "paired_internal_transfer_payment_id": payment.id,
                     "date": payment.date,
+                    "amount" : payment.currency_id._convert(
+                        payment.amount,
+                        payment.destination_journal_id.currency_id,
+                        payment.company_id,
+                        fields.Date.context_today(self),
+                        round=False,
+                    ),
+                    "currency_id" : payment.destination_journal_id.currency_id.id ,
                 }
             )
             paired_payment.move_id._post(soft=False)
