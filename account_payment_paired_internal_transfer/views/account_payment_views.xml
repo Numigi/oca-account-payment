@@ -25,6 +25,9 @@
                     }"
                 />
             </xpath>
+            <xpath expr="//field[@name='payment_type']" position="attributes">
+                <attribute name="attrs">{'invisible': [('is_internal_transfer', '=', True)]}</attribute>
+            </xpath>
         </field>
     </record>
 </odoo>

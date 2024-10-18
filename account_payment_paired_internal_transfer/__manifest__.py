@@ -3,8 +3,8 @@
 
 {
     "name": "Account Payment Paired Internal Transfer",
-    "version": "14.0.1.0.1",
-    "summary": "Crete internal transfers in one move.",
+    "version": "14.0.1.0.3",
+    "summary": "Create internal transfers in one move.",
     "license": "LGPL-3",
     "depends": ["account"],
     "author": "Odoo Community Association (OCA), Jarsa, Odoo SA",
