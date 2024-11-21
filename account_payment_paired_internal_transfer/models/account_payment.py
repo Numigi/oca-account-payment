@@ -1,7 +1,7 @@
 # Copyright 2021 Jarsa
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import _, fields, models
+from odoo import _, api, fields, models
 
 
 class AccountPayment(models.Model):
@@ -18,6 +18,11 @@ class AccountPayment(models.Model):
         help="When an internal transfer is posted, a paired payment is created. "
         "They cross referenced trough this field",
     )
+
+    @api.onchange("is_internal_transfer")
+    def _onchange_is_internal_transfer(self):
+        if self.is_internal_transfer:
+            self.payment_type = "outbound"
 
     def action_post(self):
         res = super().action_post()
