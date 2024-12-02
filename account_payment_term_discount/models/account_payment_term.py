@@ -87,11 +87,15 @@ class AccountPaymentTermLine(models.Model):
     discount_income_account_id = fields.Many2one(
         "account.account",
         string="Discount on Purchases Account",
+        ondelete="restrict",
+        company_dependent=True,
         help="This account will be used to post the discount on purchases.",
     )
     discount_expense_account_id = fields.Many2one(
         "account.account",
         string="Discount on Sales Account",
+        ondelete="restrict",
+        company_dependent=True,
         help="This account will be used to post the discount on sales.",
     )
 
